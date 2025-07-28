@@ -1,0 +1,8 @@
+// Get attributes from current feature
+function GetFeatureAttributes( FieldList ){
+    // Get feature attributes based on matching fields
+    Expects( $feature , '*' )
+    var FeatureAttributes = { }
+    for ( var i in MatchFields ){ FeatureAttributes[ FieldList[ i ] ] = $feature[ FieldList[ i ] ] }
+    return FeatureAttributes
+    }
