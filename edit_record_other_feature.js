@@ -1,0 +1,33 @@
+// Apply edits to matching record in feature
+function EditOtherFeature( EditFeature , EditType , Result , MatchID , Attributes ){
+    if ( EditType == 'Insert' ){
+        return {
+            'result': Result,
+            'edit': [{
+                'className': EditFeature,
+                'adds': [{ 'attributes' : Attributes }]
+                }]
+            }
+        }
+    else if ( EditType == 'Update' ){
+        return {
+            'result': Result,
+            'edit': [{
+                   'className': EditFeature,
+                   'updates': [{
+                       'OBJECTID' : MatchID,
+                       'attributes' : Attributes
+                              }]
+                    }]
+            }    
+        }
+    else if ( EditType == 'Delete' ){
+        return {
+            'result': Result,
+            'edit': [{
+                   'className': EditFeature,
+                   'deletes': [{ 'OBJECTID' : MatchID }]
+                    }]
+            }    
+        }
+    }
